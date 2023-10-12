@@ -25,5 +25,14 @@ class Program
         int[] result2 = array3d.GetValues01(1, 2);
         for (int i = 0; i < result2.Length; i++)
             Console.WriteLine(result2[i]);
+
+        Console.WriteLine("\n");
+        Array3d<string> array3dNew = new Array3d<string>(1, 2, 3);
+        string[] arrayNew = new string[] { "Iced coffee", "Tea" };
+        array3dNew.SetValues01(0, 1, arrayNew);
+        
+        string[] result1New = array3dNew.GetValues01(0, 1);
+        for (int i = 0; i < result1New.Length; i++)
+            Console.WriteLine(result1New[i]);
     }
 }
