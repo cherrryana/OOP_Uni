@@ -19,17 +19,13 @@ public class Array3d <T>
 
     public T this[int i, int j, int k]
     {
-        get
-        {
-            return (checkIndex(i, j, Dim0, Dim1) && checkIndex(k, Dim2)) ?      // в индексаторе не всегда учитывается провекра на неотрицательность индекса и на то,
-                                                                                // что он меньше своего Dim, поэтому дальше везде стоят доп. проверки
+         get =>
+            (checkIndex(i, j, Dim0, Dim1) && checkIndex(k, Dim2)) ?      // в индексаторе не всегда учитывается провекра на неотрицательность индекса и на то,
+                                                                          // что он меньше своего Dim, поэтому дальше везде стоят доп. проверки
                 array3d[k * Dim0 * Dim1 + j * Dim0 + i] : throw new Exception("Index is out of range");
-        }
-        set
-        {
+        set =>
             array3d[k * Dim0 * Dim1 + j * Dim0 + i] = (checkIndex(i, j, Dim0, Dim1) && checkIndex(k, Dim2)) ? 
                 value : throw new Exception("Index is out of range");
-        }
     }
 
     public void SetValues0(int i, T[][] matrix)
